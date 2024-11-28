@@ -59,6 +59,30 @@
 <p>做完這個讓我感到有成就感，可以利用程式來解決問題</p>
 <p></p>
 <h3>w11</h3>
+<p>題目一:</p>
+<p><iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen="allowfullscreen" frameborder="0" height="492" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/MhxOQVQcJoE" title="w11_hw  41323137 題目一" width="876"></iframe></p>
+<p>已知可以用 Python 程式由上往下列印三角形 *, 或由左往右列印三角形 *, 請將此程式延伸到可以在 10x10 的字元區域中, 以 "*" 字元列印出圓型區域</p>
+<p><span>第一題解答:"</span><a href="https://mdecp2024.github.io/hw-41323137cjc/content/Brython.html?src=https://gist.githubusercontent.com/41323137cjc/fcfc55265f2065fb8c8274b945987323/raw/bcba2822b7e5024b367f1f353a9498530764d6bc/hw1.py">*"字號圓形</a></p>
+<pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false"># 圓心位置
+h, k = 5, 5
+# 圓的半徑
+r = 4
+# 遍歷 10x10 的區域
+for y in range(10):
+    for x in range(10):
+        # 計算每個點與圓心的距離
+        distance = ((x - h) ** 2 + (y - k) ** 2) ** 0.5
+        # 如果距離小於或等於圓的半徑，則列印 "*"
+        if distance &lt;= r:
+            print('*', end='')
+        else:
+            print(' ', end='')  # 空格表示不是圓的一部分
+    print()  # 換行到下一列</pre>
+<p></p>
+<p>題目二:</p>
+<p><iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen="allowfullscreen" frameborder="0" height="492" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/ohzHUua55H0" title="w11_hw 41323137 題目二" width="903"></iframe> 已知可以在網頁中利用 Brython 繪製方格與塗色, 如下連結, 請設法修改此一程式, 直接將程式存入個人的 Gist, 並利用黑色方塊圍出一個圓形區域.網頁上的方格與塗色</p>
+<p><span>第二題解答:<a href="https://mdecp2024.github.io/hw-41323137cjc/content/Brython.html?src=https://gist.githubusercontent.com/41323137cjc/d89b948dee69ab82586ee543730ca03e/raw/5253f8b13c4dd36f118e98932c82791c73c8aa19/hw2.py">網頁上的方格與塗色</a></span></p>
+<p><span></span></p><h3>w12</h3>
 <h1>HW 2</h1>
 <h4>主題: Python 的數列、判斷式與重複迴圈 (20%)<span style="background-color: #ffff99;"><br/></span></h4>
 <p style="padding-left: 30px;">Python 課程教材: <a href="https://www.learnpythonwithjupyter.com/">https://www.learnpythonwithjupyter.com/</a> - PART 2 and Part 3</p>

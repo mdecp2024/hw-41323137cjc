@@ -130,7 +130,7 @@ img.add_border {
                             <li><a href="./../blog/index.html">blog</a></li>
                         </ul>
                       </li>
-                     <li><a href='About.html'>About</a><li><a href='Attendance.html'>Attendance</a><li class='has-children'><a href='HW 1.html'>HW 1</a><ul class='dropdown'><li class='has-children'><a href='HW 1 Exam.html'>HW 1 Exam</a><ul class='dropdown'><li><a href='w7.html'>w7</a><li><a href='w9.html'>w9</a><li><a href='w10.html'>w10</a><li><a href='w11.html'>w11</a></li></li></ul></ul><li class='has-children'><a href='HW 2.html'>HW 2</a><ul class='dropdown'><li><a href='HW 2 Exam.html'>HW 2 Exam</a></li></ul><li class='has-children'><a href='HW 3.html'>HW 3</a><ul class='dropdown'><li><a href='HW 3 Exam.html'>HW 3 Exam</a></li></ul><li class='has-children'><a href='HW 4.html'>HW 4</a><ul class='dropdown'><li><a href='HW 4 Exam.html'>HW 4 Exam</a></li></ul><li><a href='Final Report.html'>Final Report</a><li><a href='Brython.html'>Brython</a></li>
+                     <li><a href='About.html'>About</a><li><a href='Attendance.html'>Attendance</a><li class='has-children'><a href='HW 1.html'>HW 1</a><ul class='dropdown'><li class='has-children'><a href='HW 1 Exam.html'>HW 1 Exam</a><ul class='dropdown'><li><a href='w7.html'>w7</a><li><a href='w9.html'>w9</a><li><a href='w10.html'>w10</a><li><a href='w11.html'>w11</a><li><a href='w12.html'>w12</a></li></li></ul></ul><li class='has-children'><a href='HW 2.html'>HW 2</a><ul class='dropdown'><li><a href='HW 2 Exam.html'>HW 2 Exam</a></li></ul><li class='has-children'><a href='HW 3.html'>HW 3</a><ul class='dropdown'><li><a href='HW 3 Exam.html'>HW 3 Exam</a></li></ul><li class='has-children'><a href='HW 4.html'>HW 4</a><ul class='dropdown'><li><a href='HW 4 Exam.html'>HW 4 Exam</a></li></ul><li><a href='Final Report.html'>Final Report</a><li><a href='Brython.html'>Brython</a></li>
                       </ul>
                 </nav>
               </div>
@@ -141,8 +141,77 @@ img.add_border {
           </div>
           
         </header>
-    <div id="tipue_search_content">w10 << <a href='w10.html'>Previous</a> <a href='HW 2.html'>Next</a> >> HW 2<br /><h1>w11</h1>
-<br />w10 << <a href='w10.html'>Previous</a> <a href='HW 2.html'>Next</a> >> HW 2</div>
+    <div id="tipue_search_content">w10 << <a href='w10.html'>Previous</a> <a href='w12.html'>Next</a> >> w12<br /><h1>w11</h1>
+<p>題目一:</p>
+<p><iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen="allowfullscreen" frameborder="0" height="492" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/MhxOQVQcJoE" title="w11_hw  41323137 題目一" width="876"></iframe></p>
+<p>已知可以用 Python 程式由上往下列印三角形 *, 或由左往右列印三角形 *, 請將此程式延伸到可以在 10x10 的字元區域中, 以 "*" 字元列印出圓型區域</p>
+<p><span>第一題解答:"</span><a href="https://mdecp2024.github.io/hw-41323137cjc/content/Brython.html?src=https://gist.githubusercontent.com/41323137cjc/fcfc55265f2065fb8c8274b945987323/raw/bcba2822b7e5024b367f1f353a9498530764d6bc/hw1.py">*"字號圓形</a></p>
+<pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false"># 圓心位置
+h, k = 5, 5
+# 圓的半徑
+r = 4
+# 遍歷 10x10 的區域
+for y in range(10):
+    for x in range(10):
+        # 計算每個點與圓心的距離
+        distance = ((x - h) ** 2 + (y - k) ** 2) ** 0.5
+        # 如果距離小於或等於圓的半徑，則列印 "*"
+        if distance &lt;= r:
+            print('*', end='')
+        else:
+            print(' ', end='')  # 空格表示不是圓的一部分
+    print()  # 換行到下一列</pre>
+<p></p>
+<p>題目二:</p>
+<p><iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen="allowfullscreen" frameborder="0" height="492" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/ohzHUua55H0" title="w11_hw 41323137 題目二" width="903"></iframe> 已知可以在網頁中利用 Brython 繪製方格與塗色, 如下連結, 請設法修改此一程式, 直接將程式存入個人的 Gist, 並利用黑色方塊圍出一個圓形區域.網頁上的方格與塗色</p>
+<p><span>第二題解答:<a href="https://mdecp2024.github.io/hw-41323137cjc/content/Brython.html?src=https://gist.githubusercontent.com/41323137cjc/d89b948dee69ab82586ee543730ca03e/raw/5253f8b13c4dd36f118e98932c82791c73c8aa19/hw2.py">網頁上的方格與塗色</a></span></p>
+<pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false">from browser import html
+from browser import document as doc
+import math
+
+# 利用 html 建立 canvas 超文件物件
+canvas = html.CANVAS(width=400, height=400)
+brython_div = doc["brython_div1"]
+brython_div &lt;= canvas
+
+# 每一格的 pixel 數
+gs = 20  # Grid size remains the same, each square is 20x20
+
+# gs*tc = canvas width and height
+
+ctx = canvas.getContext("2d")
+
+def dRect(lux, luy, w, h, s=1, c='#ff0000'):
+    ctx.lineWidth = s
+    ctx.strokeStyle = c
+    ctx.beginPath()
+    ctx.rect(lux, luy, w, h)
+    ctx.stroke()
+
+def fill(x, y, color):
+    ctx.fillStyle = color
+    ctx.fillRect(x-1, y-1, gs, gs)
+
+def drawFilledCircle(center_x, center_y, radius):
+    # Fill the circle with black squares
+    for i in range(center_x - radius, center_x + radius + 1):
+        for j in range(center_y - radius, center_y + radius + 1):
+            # Calculate the distance from the center
+            distance = math.sqrt((i - center_x) ** 2 + (j - center_y) ** 2)
+            
+            # If the distance is less than or equal to the radius, fill the square
+            if distance &lt;= radius:
+                fill(i * gs, j * gs, "black")  # Draw the square
+
+def grid(width, height, grid_pix):
+    for i in range(width):
+        for j in range(height):
+            dRect(i * grid_pix, j * grid_pix, grid_pix, grid_pix, 1, "lightgrey")
+
+grid(10, 10, gs)  # Create a 10x10 grid
+drawFilledCircle(5, 5, 4)  # Draw a filled circle with radius 4 at the center of the grid
+</pre>
+<p><span></span></p><br />w10 << <a href='w10.html'>Previous</a> <a href='w12.html'>Next</a> >> w12</div>
         
     <!-- footer -->
       <div class="container">
