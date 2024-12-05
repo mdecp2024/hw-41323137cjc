@@ -82,6 +82,52 @@ for y in range(10):
 <p>題目二:</p>
 <p><iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen="allowfullscreen" frameborder="0" height="492" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/ohzHUua55H0" title="w11_hw 41323137 題目二" width="903"></iframe> 已知可以在網頁中利用 Brython 繪製方格與塗色, 如下連結, 請設法修改此一程式, 直接將程式存入個人的 Gist, 並利用黑色方塊圍出一個圓形區域.網頁上的方格與塗色</p>
 <p><span>第二題解答:<a href="https://mdecp2024.github.io/hw-41323137cjc/content/Brython.html?src=https://gist.githubusercontent.com/41323137cjc/d89b948dee69ab82586ee543730ca03e/raw/5253f8b13c4dd36f118e98932c82791c73c8aa19/hw2.py">網頁上的方格與塗色</a></span></p>
+<pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false">from browser import html
+from browser import document as doc
+import math
+
+# 利用 html 建立 canvas 超文件物件
+canvas = html.CANVAS(width=400, height=400)
+brython_div = doc["brython_div1"]
+brython_div &lt;= canvas
+
+# 每一格的 pixel 數
+gs = 20  # Grid size remains the same, each square is 20x20
+
+# gs*tc = canvas width and height
+
+ctx = canvas.getContext("2d")
+
+def dRect(lux, luy, w, h, s=1, c='#ff0000'):
+    ctx.lineWidth = s
+    ctx.strokeStyle = c
+    ctx.beginPath()
+    ctx.rect(lux, luy, w, h)
+    ctx.stroke()
+
+def fill(x, y, color):
+    ctx.fillStyle = color
+    ctx.fillRect(x-1, y-1, gs, gs)
+
+def drawFilledCircle(center_x, center_y, radius):
+    # Fill the circle with black squares
+    for i in range(center_x - radius, center_x + radius + 1):
+        for j in range(center_y - radius, center_y + radius + 1):
+            # Calculate the distance from the center
+            distance = math.sqrt((i - center_x) ** 2 + (j - center_y) ** 2)
+            
+            # If the distance is less than or equal to the radius, fill the square
+            if distance &lt;= radius:
+                fill(i * gs, j * gs, "black")  # Draw the square
+
+def grid(width, height, grid_pix):
+    for i in range(width):
+        for j in range(height):
+            dRect(i * grid_pix, j * grid_pix, grid_pix, grid_pix, 1, "lightgrey")
+
+grid(10, 10, gs)  # Create a 10x10 grid
+drawFilledCircle(5, 5, 4)  # Draw a filled circle with radius 4 at the center of the grid
+</pre>
 <p><span></span></p><h3>w12</h3>
 <h1>HW 2</h1>
 <h4>主題: Python 的數列、判斷式與重複迴圈 (20%)<span style="background-color: #ffff99;"><br/></span></h4>
