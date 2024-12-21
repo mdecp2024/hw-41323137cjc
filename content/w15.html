@@ -142,7 +142,7 @@ img.add_border {
           
         </header>
     <div id="tipue_search_content">w14_ex << <a href='w14_ex.html'>Previous</a> <a href='HW 2.html'>Next</a> >> HW 2<br /><h1>w15</h1>
-<p><span>題目一:<a href="https://mdecp2024.github.io/hw-41323137cjc/content/Brython.html?src=https://gist.githubusercontent.com/41323137cjc/b701801d067a7899f9659e28b3b79374/raw/42b3e7034e749fa6abf07ae5dea06a1f1e0fa3a6/w15"> 程式碼</a></span></p>
+<p><span>題目一:<a href="https://mdecp2024.github.io/hw-41323137cjc/content/Brython.html?src=https://gist.githubusercontent.com/41323137cjc/b701801d067a7899f9659e28b3b79374/raw/42b3e7034e749fa6abf07ae5dea06a1f1e0fa3a6/w15">從 1 累加到 100"作為 anchor</a></span></p>
 <p><span>從 1 累加到 100"作為 anchor 的連結標題</span></p>
 <pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false">sum_result = 0 #建立變數sum_result
 i = 1 #指定i等於1
@@ -150,7 +150,7 @@ while i &lt;= 100:     #使用while迴圈把i加到等於100
     sum_result += i   
     i += 1
 print(sum_result)</pre>
-<p><span>題目二:<a href="https://mdecp2024.github.io/hw-41323137cjc/content/Brython.html?src=https://gist.githubusercontent.com/41323137cjc/d510623b3ad2a36bcd0060d6e94e00b4/raw/f480f3d634e091fbe360dd6861971bf1b68b71bc/w15">程式碼</a></span></p>
+<p><span>題目二:<a href="https://mdecp2024.github.io/hw-41323137cjc/content/Brython.html?src=https://gist.githubusercontent.com/41323137cjc/d510623b3ad2a36bcd0060d6e94e00b4/raw/f480f3d634e091fbe360dd6861971bf1b68b71bc/w15">addto</a></span></p>
 <p><span>設計一個函式 addto(1, 100), 可以完成上述的累加結果. (以"addto"作為連結標題)</span></p>
 <pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false">#運算程式
 def addto(start, end):   #定義函數addto
@@ -164,7 +164,28 @@ def addto(start, end):   #定義函數addto
 #調用程式
 result = addto(1, 100)   #設定起始值
 print(result)            #列印result</pre>
-<p><span>題目四:</span><a href="https://mdecp2024.github.io/hw-41323137cjc/content/Brython.html?src=https://gist.githubusercontent.com/41323137cjc/c6af59848f96f4270bfc2af109d02db1/raw/02cba3a339ca20d37b73acc7b653bef321122793/w15">程式碼</a></p>
+<p><span>題目三:<a href="https://mdecp2024.github.io/hw-41323137cjc/content/Brython.html?src=https://gist.githubusercontent.com/41323137cjc/d510623b3ad2a36bcd0060d6e94e00b4/raw/f480f3d634e091fbe360dd6861971bf1b68b71bc/w15">addto</a><a href="https://mdecp2024.github.io/hw-41323137cjc/content/Brython.html?src=https://gist.githubusercontent.com/41323137cjc/542ec046784c67760c9ad69185d378b7/raw/aeeac43a01e64ae56c471164de25b8444943c952/w15"> add_only_even</a> </span></p>
+<p><span>設計一個函式add_only_even(1, 100), 可以完成從第一個輸入整數, 累加到第二個輸入變數的累加結果, 但只納入偶數.</span></p>
+<pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false">def add_only_even(start, end):
+    """
+    計算從 start 到 end (包含) 的所有偶數的總和。
+
+    :param start: 起始整數
+    :param end: 結束整數
+    :return: 偶數總和
+    """
+    total = 0
+    for num in range(start, end + 1):
+        if num % 2 == 0:
+            total += num
+    return total
+
+# 範例使用
+result = add_only_even(1, 100)
+print(f"從 1 到 100 的偶數總和為: {result}")
+</pre>
+<p><span>題目四:<a href="https://mdecp2024.github.io/hw-41323137cjc/content/Brython.html?src=https://gist.githubusercontent.com/41323137cjc/c6af59848f96f4270bfc2af109d02db1/raw/02cba3a339ca20d37b73acc7b653bef321122793/w15">add_avoid_8</a></span></p>
+<p><span>設計一個函式add_avoid_8(1, 100), 可以完成從第一個輸入整數, 累加到第二個輸入變數的累加過程, 必須避開數字出現"8"的整數.</span></p>
 <pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false">def add_avoid_8(init, addto):
     sum = 0
     for i in range(init, addto + 1):
