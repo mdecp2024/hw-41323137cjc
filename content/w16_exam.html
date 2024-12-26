@@ -141,8 +141,115 @@ img.add_border {
           </div>
           
         </header>
-    <div id="tipue_search_content">w11_hw << <a href='w11_hw.html'>Previous</a> <a href='w13_hw.html'>Next</a> >> w13_hw<br /><h1>w12</h1>
-<br />w11_hw << <a href='w11_hw.html'>Previous</a> <a href='w13_hw.html'>Next</a> >> w13_hw</div>
+    <div id="tipue_search_content">HW 2 Exam << <a href='HW 2 Exam.html'>Previous</a> <a href='HW 3.html'>Next</a> >> HW 3<br /><h1>w16_exam</h1>
+<p><a href="https://mdecp2024.github.io/hw-41323137cjc/content/Brython.html?src=https://gist.githubusercontent.com/41323137cjc/f3cb4451b679dab2b9e8603afc220280/raw/f8b7b40a0871194c598794de38116b44ddb1760b/w16_exam1">繪製圖形程式碼</a></p>
+<p><iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen="allowfullscreen" frameborder="0" height="492" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/Ikm6IcKvFBo" title="國立虎尾科技大學機械設計工程系 - 計算機程式 - w16_exam1: 學號41323137" width="875"></iframe></p>
+<div id="brython_div1"></div>
+<!-- 導入 brython 程式庫 -->
+<p>
+<script src="./../cmsimde/static/brython.js"></script>
+<script src="./../cmsimde/static/brython_stdlib.js"></script>
+</p>
+<!-- 啟動 Brython -->
+<p>
+<script>
+window.onload=function(){
+    brython({debug:1, pythonpath:['./../cmsimde/static/','./../downloads/py/']});
+}
+</script>
+<script type="text/python3">
+from browser import html
+from browser import document as doc
+
+# 建立 Canvas 元素
+canvas = html.CANVAS(width=2000, height=2000)
+brython_div = doc["brython_div1"]
+brython_div <= canvas
+
+# 取得 2D 畫布上下文
+ctx = canvas.getContext("2d")
+
+# 設定畫線寬度和顏色
+ctx.lineWidth = 2
+ctx.strokeStyle = "black"
+
+# 畫 X 軸
+ctx.beginPath()
+ctx.moveTo(31, 37)
+ctx.lineTo(107, 37)
+ctx.stroke()
+
+# 畫 Y 軸
+ctx.beginPath()
+ctx.moveTo(31, 37)
+ctx.lineTo(31, 127)
+ctx.stroke()
+
+# 設定字型與顏色，並在指定位置繪製文字
+ctx.font = "20px Arial"
+ctx.fillStyle = "black"
+ctx.fillText("+X", 110, 57)
+ctx.fillText("+Y", 41, 140)
+
+# 標示原點座標
+ctx.font = "12px Arial"
+ctx.fillStyle = "black"
+ctx.fillText("(31, 37)", 41, 47)
+
+# 位移偏移量
+x = 31
+y = 37
+
+# 畫橙色六邊形
+ctx.beginPath()
+ctx.fillStyle = "#EBB000"
+ctx.moveTo(x + 40, y + 70)
+ctx.lineTo(x + 60, y + 40)
+ctx.lineTo(x + 90, y + 40)
+ctx.lineTo(x + 110, y + 70)
+ctx.lineTo(x + 90, y + 100)
+ctx.lineTo(x + 60, y + 100)
+ctx.closePath()
+ctx.fill()
+
+# 畫綠色菱形
+ctx.beginPath()
+ctx.fillStyle = "#2CB05F"
+ctx.moveTo(x + 130, y + 70)
+ctx.lineTo(x + 150, y + 40)
+ctx.lineTo(x + 170, y + 70)
+ctx.lineTo(x + 150, y + 100)
+ctx.closePath()
+ctx.fill()
+
+# 畫藍色三角形
+ctx.beginPath()
+ctx.fillStyle = "#73B7FF"
+ctx.moveTo(x + 174, y + 70)  # 頂點在菱形右側
+ctx.lineTo(x + 154, y + 100)  # 左下角
+ctx.lineTo(x + 194, y + 100)  # 右下角
+ctx.closePath()
+ctx.fill()
+
+# 畫粉紅色圓形
+ctx.beginPath()
+ctx.fillStyle = "#FF458C"
+ctx.arc(x + 220, y + 70, 20, 0, 2 * 3.14159)
+ctx.fill()
+
+# 畫黃色正方形
+ctx.beginPath()
+ctx.fillStyle = "#EBDF00"
+ctx.rect(x + 260, y + 43, 40, 40)
+ctx.fill()
+
+# 畫藍色矩形
+ctx.beginPath()
+ctx.fillStyle = "#004A99"
+ctx.rect(x + 320, y + 53, 60, 20)
+ctx.fill()
+</script>
+</p><br />HW 2 Exam << <a href='HW 2 Exam.html'>Previous</a> <a href='HW 3.html'>Next</a> >> HW 3</div>
         
     <!-- footer -->
       <div class="container">
