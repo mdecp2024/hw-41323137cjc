@@ -133,7 +133,181 @@ drawFilledCircle(5, 5, 4)  # Draw a filled circle with radius 4 at the center of
 <h3>w13_hw</h3>
 <p>w13_hw</p>
 <p><iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen="allowfullscreen" frameborder="0" height="492" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/Rd9oDcMk4S0" title="w13_hw 41323137" width="875"></iframe></p>
-<p>課堂練習和回家作業</p>
+<h4>w13</h4>
+<div id="brython_div1"></div>
+<!-- 導入 brython 程式庫 -->
+<p>
+<script src="/static/brython.js"></script>
+<script src="/static/brython_stdlib.js"></script>
+</p>
+<!-- 啟動 Brython -->
+<p>
+<script>
+window.onload=function(){
+brython({debug:1, pythonpath:['./../cmsimde/static/','./../downloads/py/']});
+}
+</script>
+<script type="text/python3">
+from browser import html
+from browser import document as doc
+ 
+# 利用 html 建立 canvas 超文件物件
+canvas = html.CANVAS(width=400, height=400)
+brython_div = doc["brython_div1"]
+brython_div <= canvas
+
+ctx = canvas.getContext("2d")
+ctx.lineWidth = 1
+ctx.strokeStyle = 'red'
+ctx.beginPath() 
+ctx.rect(0, 0, 200, 200)
+ctx.stroke()
+</script>
+</p>
+<!-- 導入 brython 程式庫 -->
+<p>
+<script src="/get_page/cmsimde/static/brython.js"></script>
+<script src="/get_page/cmsimde/static/brython_stdlib.js"></script>
+</p>
+<!-- 啟動 Brython -->
+<p>
+<script>
+window.onload=function(){
+brython({debug:1, pythonpath:['./../cmsimde/static/','./../downloads/py/']});
+}
+</script>
+</p>
+<div id="brython_div1"></div>
+<p>
+<script type="text/python3">
+from browser import html
+from browser import document as doc
+import math
+
+canvas = html.CANVAS(width=500, height=500)
+brython_div = doc["brython_div1"]
+brython_div <= canvas
+
+ctx = canvas.getContext("2d")
+ctx.lineWidth = 4
+
+# 混色的
+ctx.globalCompositeOperation = "screem"
+
+# 黑邊圓*2 (每個畫四個邊邊)
+ctx.strokeStyle = 'black'
+
+# 第一個圓
+ctx.beginPath()
+ctx.arc(160, 160, 141, 0.25 * math.pi, 0.75 * math.pi)
+ctx.fillStyle = "SkyBlue"  
+ctx.fill()
+ctx.stroke()
+
+ctx.beginPath()
+ctx.arc(160, 160, 141, 0.75 * math.pi, 1.25 * math.pi)
+ctx.fillStyle = "Coral"  
+ctx.fill()
+ctx.stroke()
+
+ctx.beginPath()
+ctx.arc(160, 160, 141, 1.25 * math.pi, 1.75 * math.pi)
+ctx.fillStyle = "LimeGreen"  
+ctx.fill()
+ctx.stroke()
+
+ctx.beginPath()
+ctx.arc(160, 160, 141, 1.75 * math.pi, 0.25 * math.pi)
+ctx.fillStyle = "Beige"  
+ctx.fill()
+ctx.stroke()
+
+# 第二個圓
+ctx.beginPath()
+ctx.arc(260, 260, 141, 1.25 * math.pi, 1.75 * math.pi)
+ctx.fillStyle = "DarkOrchid" 
+ctx.fill()
+ctx.stroke()
+
+ctx.beginPath()
+ctx.arc(260, 260, 141, 1.75 * math.pi, 0.25 * math.pi)
+ctx.fillStyle = "ForestGreen"  
+ctx.fill()
+ctx.stroke()
+
+ctx.beginPath()
+ctx.arc(260, 260, 141, 0.25 * math.pi, 0.75 * math.pi)
+ctx.fillStyle = "Gold"  
+ctx.fill()
+ctx.stroke()
+
+ctx.beginPath()
+ctx.arc(260, 260, 141, 0.75 * math.pi, 1.25 * math.pi)
+ctx.fillStyle = "Crimson" 
+ctx.fill()
+ctx.stroke()
+
+# 紅方形*2 (4個三角形)
+ctx.strokeStyle = 'red'
+ctx.beginPath()
+ctx.moveTo(60, 60)
+ctx.lineTo(60, 260)
+ctx.lineTo(260, 260)
+ctx.fillStyle = "LightYellow" 
+ctx.fill()
+ctx.stroke()
+
+ctx.beginPath()
+ctx.moveTo(60, 60)
+ctx.lineTo(260, 60)
+ctx.lineTo(260, 260)
+ctx.fillStyle = "DarkSlateBlue"  
+ctx.fill()
+ctx.stroke()
+
+ctx.beginPath()
+ctx.moveTo(160, 160)
+ctx.lineTo(360, 160)
+ctx.lineTo(360, 360)
+ctx.fillStyle = "LightCyan" 
+ctx.fill()
+ctx.stroke()
+
+ctx.beginPath()
+ctx.moveTo(160, 160)
+ctx.lineTo(160, 360)
+ctx.lineTo(360, 360)
+ctx.fillStyle = "PaleGreen"  
+ctx.fill()
+ctx.stroke()
+
+# 重疊的小方型
+ctx.beginPath()
+ctx.moveTo(160, 160)
+ctx.lineTo(160, 260)
+ctx.lineTo(260, 260)
+ctx.fillStyle = "SteelBlue"  
+ctx.fill()
+ctx.stroke()
+
+ctx.beginPath()
+ctx.moveTo(160, 160)
+ctx.lineTo(260, 160)
+ctx.lineTo(260, 260)
+ctx.fillStyle = "MediumPurple" 
+ctx.fill()
+ctx.stroke()
+
+# 藍斜線
+ctx.strokeStyle = 'blue'
+ctx.beginPath()
+ctx.moveTo(60, 60)
+ctx.lineTo(360, 360)
+ctx.stroke()
+</script>
+</p>
+<p></p>
+<p></p>
 <pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false">&lt;!-- 導入 brython 程式庫 --&gt;
 &lt;p&gt;
 &lt;script src="./../cmsimde/static/brython.js"&gt;&lt;/script&gt;
@@ -275,224 +449,55 @@ ctx.moveTo(60, 60)
 ctx.lineTo(260, 260)
 ctx.stroke()
 &lt;/script&gt;</pre>
-<p><br/><br/><br/></p>
+<p><br/><br/>w13 &lt;&lt; <a href="/get_page/w13_hw/w13.html">Previous</a> <a href="/get_page/w13_hw/w14_ex.html">Next</a> &gt;&gt; w14_ex</p>
+<!-- footer -->
+<div class="container">
+<div class="row pt-3 mx-auto">
+<p><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --> Copyright ©
+<script>
+document.write(new Date().getFullYear());
+</script>
+All rights reserved | This template is made with <i aria-hidden="true" class="icon-heart"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a> <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p>
+</div>
+</div>
+<!-- for footer -->
 <p></p>
-<p>課堂練習&amp;回家作業:</p>
-<div id="brython_div1"></div>
-<!-- 導入 brython 程式庫 -->
-<p>
-<script src="/static/brython.js"></script>
-<script src="/static/brython_stdlib.js"></script>
-</p>
-<!-- 啟動 Brython -->
-<p>
-<script>
-window.onload=function(){
-brython({debug:1, pythonpath:['./../cmsimde/static/','./../downloads/py/']});
-}
-</script>
-<script type="text/python3">
-from browser import html
-from browser import document as doc
- 
-# 利用 html 建立 canvas 超文件物件
-canvas = html.CANVAS(width=400, height=400)
-brython_div = doc["brython_div1"]
-brython_div <= canvas
-
-ctx = canvas.getContext("2d")
-ctx.lineWidth = 1
-ctx.strokeStyle = 'red'
-ctx.beginPath() 
-ctx.rect(0, 0, 200, 200)
-ctx.stroke()
-</script>
-</p>
-<div id="brython_div1"></div>
-<!-- 導入 brython 程式庫 -->
-<p>
-<script src="/get_page/cmsimde/static/brython.js"></script>
-<script src="/get_page/cmsimde/static/brython_stdlib.js"></script>
-</p>
-<!-- 啟動 Brython -->
-<p>
-<script>
-window.onload=function(){
-brython({debug:1, pythonpath:['./../cmsimde/static/','./../downloads/py/']});
-}
-</script>
-<script type="text/python3">
-from browser import html
-from browser import document as doc
-
-# 利用 html 建立 canvas 超文件物件
-canvas = html.CANVAS(width=400, height=400)
-brython_div = doc["brython_div1"]
-brython_div <= canvas
-
-ctx = canvas.getContext("2d")
-ctx.lineWidth = 1
-
-# 繪製兩個矩形
-ctx.strokeStyle = 'red'  # 設定矩形顏色為紅色
-ctx.beginPath() 
-ctx.rect(10, 10, 200, 200)
-ctx.rect(110, 110, 200, 200)
-ctx.stroke()
-
-# 繪製對角線，顏色設定為藍色
-ctx.strokeStyle = 'blue'  # 設定對角線顏色為藍色
-ctx.beginPath() 
-ctx.moveTo(10, 10)
-ctx.lineTo(210, 210)
-ctx.stroke()
-</script>
-</p>
-<div id="brython_div1"></div>
-<!-- 導入 brython 程式庫 -->
-<p>
-<script src="/get_page/cmsimde/static/brython.js"></script>
-<script src="/get_page/cmsimde/static/brython_stdlib.js"></script>
-</p>
-<!-- 啟動 Brython -->
-<p>
-<script>
-window.onload=function(){
-brython({debug:1, pythonpath:['./../cmsimde/static/','./../downloads/py/']});
-}
-</script>
-</p>
-<h4 id="brython_div1"></h4>
-<p>
-<script type="text/python3">
-from browser import html
-from browser import document as doc
-import math
-
-canvas = html.CANVAS(width=500, height=500)
-brython_div = doc["brython_div1"]
-brython_div <= canvas
-
-ctx = canvas.getContext("2d")
-ctx.lineWidth = 4
-
-# 混色的
-ctx.globalCompositeOperation = "screem"
-
-# 黑邊圓*2 (每個畫四個邊邊)
-ctx.strokeStyle = 'black'
-
-# 第一個圓
-ctx.beginPath()
-ctx.arc(160, 160, 141, 0.25 * math.pi, 0.75 * math.pi)
-ctx.fillStyle = "SkyBlue"  
-ctx.fill()
-ctx.stroke()
-
-ctx.beginPath()
-ctx.arc(160, 160, 141, 0.75 * math.pi, 1.25 * math.pi)
-ctx.fillStyle = "Coral"  
-ctx.fill()
-ctx.stroke()
-
-ctx.beginPath()
-ctx.arc(160, 160, 141, 1.25 * math.pi, 1.75 * math.pi)
-ctx.fillStyle = "LimeGreen"  
-ctx.fill()
-ctx.stroke()
-
-ctx.beginPath()
-ctx.arc(160, 160, 141, 1.75 * math.pi, 0.25 * math.pi)
-ctx.fillStyle = "Beige"  
-ctx.fill()
-ctx.stroke()
-
-# 第二個圓
-ctx.beginPath()
-ctx.arc(260, 260, 141, 1.25 * math.pi, 1.75 * math.pi)
-ctx.fillStyle = "DarkOrchid" 
-ctx.fill()
-ctx.stroke()
-
-ctx.beginPath()
-ctx.arc(260, 260, 141, 1.75 * math.pi, 0.25 * math.pi)
-ctx.fillStyle = "ForestGreen"  
-ctx.fill()
-ctx.stroke()
-
-ctx.beginPath()
-ctx.arc(260, 260, 141, 0.25 * math.pi, 0.75 * math.pi)
-ctx.fillStyle = "Gold"  
-ctx.fill()
-ctx.stroke()
-
-ctx.beginPath()
-ctx.arc(260, 260, 141, 0.75 * math.pi, 1.25 * math.pi)
-ctx.fillStyle = "Crimson" 
-ctx.fill()
-ctx.stroke()
-
-# 紅方形*2 (4個三角形)
-ctx.strokeStyle = 'red'
-ctx.beginPath()
-ctx.moveTo(60, 60)
-ctx.lineTo(60, 260)
-ctx.lineTo(260, 260)
-ctx.fillStyle = "LightYellow" 
-ctx.fill()
-ctx.stroke()
-
-ctx.beginPath()
-ctx.moveTo(60, 60)
-ctx.lineTo(260, 60)
-ctx.lineTo(260, 260)
-ctx.fillStyle = "DarkSlateBlue"  
-ctx.fill()
-ctx.stroke()
-
-ctx.beginPath()
-ctx.moveTo(160, 160)
-ctx.lineTo(360, 160)
-ctx.lineTo(360, 360)
-ctx.fillStyle = "LightCyan" 
-ctx.fill()
-ctx.stroke()
-
-ctx.beginPath()
-ctx.moveTo(160, 160)
-ctx.lineTo(160, 360)
-ctx.lineTo(360, 360)
-ctx.fillStyle = "PaleGreen"  
-ctx.fill()
-ctx.stroke()
-
-# 重疊的小方型
-ctx.beginPath()
-ctx.moveTo(160, 160)
-ctx.lineTo(160, 260)
-ctx.lineTo(260, 260)
-ctx.fillStyle = "SteelBlue"  
-ctx.fill()
-ctx.stroke()
-
-ctx.beginPath()
-ctx.moveTo(160, 160)
-ctx.lineTo(260, 160)
-ctx.lineTo(260, 260)
-ctx.fillStyle = "MediumPurple" 
-ctx.fill()
-ctx.stroke()
-
-# 藍斜線
-ctx.strokeStyle = 'blue'
-ctx.beginPath()
-ctx.moveTo(60, 60)
-ctx.lineTo(260, 260)
-ctx.stroke()
-</script>
-</p>
+<!-- for site wrap -->
 <p></p>
-<h3>w14_ex</h3>
+<!-- <script src="../cmsimde/static/chimper/js/jquery-3.3.1.min.js"></script> -->
+<script src="/get_page/cmsimde/static/chimper/js/jquery-migrate-3.0.1.min.js"></script>
+<script src="/get_page/cmsimde/static/chimper/js/jquery-ui.js"></script>
+<script src="/get_page/cmsimde/static/chimper/js/popper.min.js"></script>
+<script src="/get_page/cmsimde/static/chimper/js/bootstrap.min.js"></script>
+<script src="/get_page/cmsimde/static/chimper/js/owl.carousel.min.js"></script>
+<script src="/get_page/cmsimde/static/chimper/js/jquery.stellar.min.js"></script>
+<script src="/get_page/cmsimde/static/chimper/js/jquery.countdown.min.js"></script>
+<script src="/get_page/cmsimde/static/chimper/js/jquery.magnific-popup.min.js"></script>
+<script src="/get_page/cmsimde/static/chimper/js/bootstrap-datepicker.min.js"></script>
+<script src="/get_page/cmsimde/static/chimper/js/aos.js"></script>
+<!--
+            <script src="../cmsimde/static/chimper/js/typed.js"></script>
+                    <script>
+                    var typed = new Typed('.typed-words', {
+                    strings: ["Web Apps"," WordPress"," Mobile Apps"],
+                    typeSpeed: 80,
+                    backSpeed: 80,
+                    backDelay: 4000,
+                    startDelay: 1000,
+                    loop: true,
+                    showCursor: true
+                    });
+                    </script>
+            -->
+<script src="/get_page/cmsimde/static/chimper/js/main.js"></script>
+<!-- 啟用 LaTeX equations 編輯 -->
+<p>&lt;!--</p>
+<script>
+  MathJax = {
+    tex: {inlineMath: [['$', '$'], ['\(', '\)']]}
+  };
+  
+</script><h3>w14_ex</h3>
 <p>w14_ex <a href="https://mdecp2024.github.io/hw-41323137cjc/content/Brython.html?src=https://gist.githubusercontent.com/41323137cjc/42847295a57b2aa5d7360c6fd4a128e5/raw/6416d2e04898110e120f1c5faf3cd4afd8935898/w14_ex">程式</a></p>
 <p><span>請根據兩個圓繪圖所圍成的</span><a href="https://mde.tw/cp2024/content/Brython.html?src=https://gist.githubusercontent.com/mdecycu/5eca62565d509668d731720f1994e127/raw/0e370b2ad0c429ab4c8905244022c27cfca8cfba/two_cicle_fill_ex1.py">區域</a><span>(目前圍成三個區域, 但若圓心移動可能彼此獨立)進行不同顏色著色, 條件是當各圓半徑與圓心座標變動時, 程式只需輸入兩個圓的圓心座標與半徑, 就可以完成各區域的著色任務.</span></p>
 <pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false">from browser import document, html
