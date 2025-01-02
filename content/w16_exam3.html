@@ -2,6 +2,7 @@
         <head>
         <title>cp_hw</title>
         <meta charset="utf-8">
+<meta property="head" content="H3">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <link rel="stylesheet" href="./../cmsimde/static/chimper/fonts/icomoon/style.css">
         <link rel="stylesheet" href="./../cmsimde/static/chimper/css/bootstrap.min.css">
@@ -94,6 +95,7 @@ img.add_border {
 </head>
 <body>
 <div class='container'><nav>
+        
     <div class="site-wrap">
 
     <div class="site-mobile-menu">
@@ -139,4 +141,243 @@ img.add_border {
           </div>
           
         </header>
-    </nav><section><h1>SMap</h1><div id="tipue_search_content"></div><ul><li><a href='About.html'>About</a><li><a href='Attendance.html'>Attendance</a><li><a href='HW 1.html'>HW 1</a><ul><li><a href='HW 1 Exam.html'>HW 1 Exam</a><ul><li><a href='w7_hw.html'>w7_hw</a><li><a href='w9.html'>w9</a><li><a href='w10_hw.html'>w10_hw</a><li><a href='w11_hw.html'>w11_hw</a><li><a href='w12.html'>w12</a><li><a href='w13_hw.html'>w13_hw</a><li><a href='w14_ex.html'>w14_ex</a><li><a href='w15.html'>w15</a></li></li></ul></ul><li><a href='HW 2.html'>HW 2</a><ul><li><a href='HW 2 Exam.html'>HW 2 Exam</a><ul><li><a href='w16_exam.html'>w16_exam</a></li></li></ul></ul><li><a href='HW 3.html'>HW 3</a><ul><li><a href='HW 3 Exam.html'>HW 3 Exam</a><ul><li><a href='w16_exam2.html'>w16_exam2</a></li></li></ul></ul><li><a href='HW 4.html'>HW 4</a><ul><li><a href='HW 4 Exam.html'>HW 4 Exam</a><ul><li><a href='w16_exam3.html'>w16_exam3</a></li></li></ul></ul><li><a href='Final Report.html'>Final Report</a><li><a href='Brython.html'>Brython</a></li></ul></section></div></body></html>
+    <div id="tipue_search_content">HW 4 Exam << <a href='HW 4 Exam.html'>Previous</a> <a href='Final Report.html'>Next</a> >> Final Report<br /><h1>w16_exam3</h1>
+<p><a href="https://mdecp2024.github.io/hw-41323137cjc/content/Brython.html?src=https://gist.githubusercontent.com/41323137cjc/9f57902aeb1086a26caa462c0483082b/raw/9b9f3b3847d1d6fd07f984e32514324d926d8a55/w16_exam3">迷宮出口程式碼</a></p>
+<p><!-- 導入 brython 程式庫 --></p>
+<p>
+<script src="./../cmsimde/static/brython.js"></script>
+<script src="./../cmsimde/static/brython_stdlib.js"></script>
+</p>
+<p>
+<script>
+window.onload=function(){
+brython({debug:1, pythonpath:['./../cmsimde/static/','./../downloads/py/']});
+}
+</script>
+</p>
+<div id="brython_div1">
+<pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false">from browser import html
+from browser import document as doc
+  
+# 設定迷宮畫布大小
+canvas = html.CANVAS(width=300, height=300)
+brython_div = doc["brython_div1"]
+brython_div &lt;= canvas
+  
+# 取得 canvas 的繪圖上下文
+ctx = canvas.getContext("2d")
+  
+# 標示左上方點座標 (31, 37)
+ctx.font = "12px Arial"
+ctx.fillStyle = "red"
+ctx.fillText("(31, 37)", 35, 35)
+  
+# 定義藍色線條的屬性
+ctx.strokeStyle = "black"
+ctx.lineWidth = 2
+  
+# 設定迷宮起點的偏移量
+offset_x, offset_y = 31, 37
+  
+# 迷宮的線條座標
+maze_lines = [
+    ((0, 0), (86, 0)),
+    ((0, 0), (0, 200)),
+    ((120, 0), (200, 0)),
+    ((200, 0), (200, 200)),
+    ((120, 200), (200, 200)),
+    ((0, 200), (86, 200)),
+    ((86, 157), (86, 200)),
+    ((86, 157), (126, 157)),
+    ((160, 120), (160, 200)),
+    ((160, 120), (50, 120)),
+    ((50, 120), (50, 163)),
+    ((126, 80), (126, 120)),
+    ((0, 80), (86, 80)),
+    ((86, 40), (86, 80)),
+    ((40, 40), (160, 40)),
+    ((160, 40), (160, 83)),
+]
+  
+# 使用輔助函數來簡化畫線的過程
+def draw_line(start, end):
+    ctx.moveTo(offset_x + start[0], offset_y + start[1])
+    ctx.lineTo(offset_x + end[0], offset_y + end[1])
+  
+# 繪製迷宮
+ctx.beginPath()
+for start, end in maze_lines:
+    draw_line(start, end)
+ctx.stroke()
+  
+# 定義紅色路徑屬性
+ctx.strokeStyle = "red"
+ctx.lineWidth = 3
+  
+# 解答路徑
+path_solution = [
+    (100, 0),    
+    (100, 20),   
+    (180, 20),  
+    (180, 100),  
+    (140, 100), 
+    (140, 60), 
+    (100, 60),
+    (100, 100),
+    (25, 100),
+    (25, 180),
+    (65, 180),
+    (65, 140),
+    (140, 140),
+    (140, 180),
+    (100, 180),
+    (100, 200),
+]
+  
+# 繪製紅色路徑
+ctx.beginPath()
+for i in range(len(path_solution) - 1):
+    start = path_solution[i]
+    end = path_solution[i + 1]
+    draw_line(start, end)
+ctx.stroke()</pre>
+</div>
+<p>
+<script type="text/python3">
+from browser import html
+from browser import document as doc
+  
+# 設定迷宮畫布大小
+canvas = html.CANVAS(width=300, height=300)
+brython_div = doc["brython_div1"]
+brython_div <= canvas
+  
+# 取得 canvas 的繪圖上下文
+ctx = canvas.getContext("2d")
+  
+# 標示左上方點座標 (31, 37)
+ctx.font = "12px Arial"
+ctx.fillStyle = "red"
+ctx.fillText("(31, 37)", 35, 35)
+  
+# 定義藍色線條的屬性
+ctx.strokeStyle = "black"
+ctx.lineWidth = 2
+  
+# 設定迷宮起點的偏移量
+offset_x, offset_y = 31, 37
+  
+# 迷宮的線條座標
+maze_lines = [
+    ((0, 0), (86, 0)),
+    ((0, 0), (0, 200)),
+    ((120, 0), (200, 0)),
+    ((200, 0), (200, 200)),
+    ((120, 200), (200, 200)),
+    ((0, 200), (86, 200)),
+    ((86, 157), (86, 200)),
+    ((86, 157), (126, 157)),
+    ((160, 120), (160, 200)),
+    ((160, 120), (50, 120)),
+    ((50, 120), (50, 163)),
+    ((126, 80), (126, 120)),
+    ((0, 80), (86, 80)),
+    ((86, 40), (86, 80)),
+    ((40, 40), (160, 40)),
+    ((160, 40), (160, 83)),
+]
+  
+# 使用輔助函數來簡化畫線的過程
+def draw_line(start, end):
+    ctx.moveTo(offset_x + start[0], offset_y + start[1])
+    ctx.lineTo(offset_x + end[0], offset_y + end[1])
+  
+# 繪製迷宮
+ctx.beginPath()
+for start, end in maze_lines:
+    draw_line(start, end)
+ctx.stroke()
+  
+# 定義紅色路徑屬性
+ctx.strokeStyle = "red"
+ctx.lineWidth = 3
+  
+# 解答路徑
+path_solution = [
+    (100, 0),    
+    (100, 20),   
+    (180, 20),  
+    (180, 100),  
+    (140, 100), 
+    (140, 60), 
+    (100, 60),
+    (100, 100),
+    (25, 100),
+    (25, 180),
+    (65, 180),
+    (65, 140),
+    (140, 140),
+    (140, 180),
+    (100, 180),
+    (100, 200),
+]
+  
+# 繪製紅色路徑
+ctx.beginPath()
+for i in range(len(path_solution) - 1):
+    start = path_solution[i]
+    end = path_solution[i + 1]
+    draw_line(start, end)
+ctx.stroke()
+</script>
+</p><br />HW 4 Exam << <a href='HW 4 Exam.html'>Previous</a> <a href='Final Report.html'>Next</a> >> Final Report</div>
+        
+    <!-- footer -->
+      <div class="container">
+        <div class="row pt-3 mx-auto">
+            <p>
+            <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+            Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="icon-heart" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank" >Colorlib</a>
+            <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+            </p>
+        </div>
+      </div>
+    <!-- for footer -->
+    
+        </div> <!-- for site wrap -->
+            <!-- <script src="../cmsimde/static/chimper/js/jquery-3.3.1.min.js"></script> -->
+            <script src="../cmsimde/static/chimper/js/jquery-migrate-3.0.1.min.js"></script>
+            <script src="../cmsimde/static/chimper/js/jquery-ui.js"></script>
+            <script src="../cmsimde/static/chimper/js/popper.min.js"></script>
+            <script src="../cmsimde/static/chimper/js/bootstrap.min.js"></script>
+            <script src="../cmsimde/static/chimper/js/owl.carousel.min.js"></script>
+            <script src="../cmsimde/static/chimper/js/jquery.stellar.min.js"></script>
+            <script src="../cmsimde/static/chimper/js/jquery.countdown.min.js"></script>
+            <script src="../cmsimde/static/chimper/js/jquery.magnific-popup.min.js"></script>
+            <script src="../cmsimde/static/chimper/js/bootstrap-datepicker.min.js"></script>
+            <script src="../cmsimde/static/chimper/js/aos.js"></script>
+            <!--
+            <script src="../cmsimde/static/chimper/js/typed.js"></script>
+                    <script>
+                    var typed = new Typed('.typed-words', {
+                    strings: ["Web Apps"," WordPress"," Mobile Apps"],
+                    typeSpeed: 80,
+                    backSpeed: 80,
+                    backDelay: 4000,
+                    startDelay: 1000,
+                    loop: true,
+                    showCursor: true
+                    });
+                    </script>
+            -->
+            <script src="../cmsimde/static/chimper/js/main.js"></script>
+        
+<!-- 啟用 LaTeX equations 編輯 -->
+  <!-- <script>
+  MathJax = {
+    tex: {inlineMath: [['$', '$'], ['\(', '\)']]}
+  };
+  </script>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>-->
+    </body></html>
+        
