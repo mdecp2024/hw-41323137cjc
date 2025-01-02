@@ -143,25 +143,27 @@ img.add_border {
         </header>
     <div id="tipue_search_content">HW 3 Exam << <a href='HW 3 Exam.html'>Previous</a> <a href='HW 4.html'>Next</a> >> HW 4<br /><h1>w16_exam2</h1>
 <p><a href="https://mdecp2024.github.io/hw-41323137cjc/content/Brython.html?src=https://gist.githubusercontent.com/41323137cjc/39f0ef91af350a9c452ee4687fd21322/raw/408cff86a8cc8a6116facbe50c37b52a1e4a4819/w16_exam2">w16_exam2</a></p>
+<p><span>題目一: 請以</span><span>自己的學號最後四碼作為下列繪圖的左上方點座標, (例如: 若學號最後四碼為 3932, 請將 (39, 32) 作為繪圖左上方點座標), 並以紅色文字標示出該點座標 (例如: (39, 32)), 之後請利用 pixel=2 的藍色直線, 自訂迷宮畫布大小, 直接在頁面畫出下列圖像, 繪圖程式除了必須直接列在頁面 html 檔案外, 也請存入自己的 Gist 區域, 並在所完成的圖像下方, 以自選標題的 anchor 連結至 Gist, 讓使用者點擊該連結後, 可以在各自的 Brython 頁面中繪出下列圖像).</span></p>
+<div id="brython_div1">
 <pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false">from browser import html
 from browser import document as doc
 
-# 建立畫布，畫布尺寸縮小為 400x400
-canvas = html.CANVAS(width=400, height=400)  
-brython_div = doc["brython_div1"]  # 將畫布放置於網頁中的指定 div
+# 建立 Canvas 元素
+canvas = html.CANVAS(width=2000, height=2000)
+brython_div = doc["brython_div1"]
 brython_div &lt;= canvas
 
-# 取得 canvas 的 2D 繪圖上下文 (context)，可以用來進行繪圖
+# 取得 2D 畫布上下文
 ctx = canvas.getContext("2d")
 
-# 每一格的像素大小，調整為 50 (原為 100)
-pixel_scale = 50  # 縮小每格的像素大小
+# 每一格的像素大小
+pixel_scale = 50
 
-# 定義原點 (31, 14) 作為起始點偏移，並將偏移值縮小
-offset_x = 32 * 2  # 偏移量仍保留為兩倍放大 (原為 32，放大後為 64)
-offset_y = 10 * 2  # 偏移量仍保留為兩倍放大 (原為 10，放大後為 20)
+# 原點偏移量
+offset_x = 32 * 2
+offset_y = 10 * 2
 
-# 定義迷宮的線條，這裡使用的是一組二維坐標來描述迷宮的邊界
+# 定義迷宮的線條
 lines = [
     ((0, 0), (2, 0)),
     ((3, 0), (5, 0)),
@@ -172,7 +174,6 @@ lines = [
     ((4, 3), (1, 3)),
     ((1, 3), (1, 4)),
     ((3, 3), (3, 2)),
-    # 第二條線
     ((0, 0), (0, 5)),
     ((0, 5), (2, 5)),
     ((2, 5), (2, 4)),
@@ -183,32 +184,132 @@ lines = [
     ((4, 1), (4, 2)),
 ]
 
-# 設定線條顏色為藍色
+# 設定線條顏色
 ctx.strokeStyle = "blue"
-# 設定線條寬度為 4 像素
+# 設定線條寬度
 ctx.lineWidth = 4
 
 # 繪製迷宮的每一條線
 for line in lines:
-    start = line[0]  # 取得每條線的起點
-    end = line[1]    # 取得每條線的終點
-    ctx.beginPath()  # 開始繪製新的一條路徑
+    start = line[0]  # 起點
+    end = line[1]    # 終點
+    ctx.beginPath()  # 開始新路徑
     ctx.moveTo(
-        offset_x + start[0] * pixel_scale,  # 起點的 X 座標
-        offset_y + start[1] * pixel_scale   # 起點的 Y 座標
+        offset_x + start[0] * pixel_scale,
+        offset_y + start[1] * pixel_scale
     )
     ctx.lineTo(
-        offset_x + end[0] * pixel_scale,    # 終點的 X 座標
-        offset_y + end[1] * pixel_scale     # 終點的 Y 座標
+        offset_x + end[0] * pixel_scale,
+        offset_y + end[1] * pixel_scale
     )
     ctx.stroke()  # 繪製線條
 
-# 設定字體大小為 14px Arial，並將顏色設為紅色
+# 標示原點座標
 ctx.font = "14px Arial"
 ctx.fillStyle = "red"
-# 更新座標標註，顯示新的座標 (31, 37)，並將標註位置調整
-ctx.fillText("(31, 37)", offset_x - 10, offset_y - 15)</pre>
-<p></p><br />HW 3 Exam << <a href='HW 3 Exam.html'>Previous</a> <a href='HW 4.html'>Next</a> >> HW 4</div>
+ctx.fillText("(31, 37)", offset_x - 20, offset_y - 5)
+</pre>
+</div>
+<!-- 導入 brython 程式庫 -->
+<p>
+<script src="./../cmsimde/static/brython.js"></script>
+<script src="./../cmsimde/static/brython_stdlib.js"></script>
+</p>
+<!-- 啟動 Brython -->
+<p>
+<script>
+window.onload=function(){
+    brython({debug:1, pythonpath:['./../cmsimde/static/','./../downloads/py/']});
+}
+</script>
+<script type="text/python3">
+from browser import html
+from browser import document as doc
+
+# 利用 html 建立 canvas 超文件物件
+canvas = html.CANVAS(width=400, height=400)
+brython_div = doc["brython_div1"]
+brython_div <= canvas
+
+# 取得 canvas 的繪圖上下文
+ctx = canvas.getContext("2d")
+from browser import html
+from browser import document as doc
+
+# 建立畫布，畫布尺寸縮小為 400x400
+canvas = html.CANVAS(width=400, height=400)  
+brython_div = doc["brython_div1"]  # 將畫布放置於網頁中的指定 div
+brython_div <= canvas
+
+# 取得 canvas 的 2D 繪圖上下文 (context)，可以用來進行繪圖
+ctx = canvas.getContext("2d")
+
+from browser import html
+from browser import document as doc
+
+# 建立 Canvas 元素
+canvas = html.CANVAS(width=2000, height=2000)
+brython_div = doc["brython_div1"]
+brython_div <= canvas
+
+# 取得 2D 畫布上下文
+ctx = canvas.getContext("2d")
+
+# 每一格的像素大小
+pixel_scale = 50
+
+# 原點偏移量
+offset_x = 32 * 2
+offset_y = 10 * 2
+
+# 定義迷宮的線條
+lines = [
+    ((0, 0), (2, 0)),
+    ((3, 0), (5, 0)),
+    ((5, 0), (5, 5)),
+    ((3, 5), (5, 5)),
+    ((5, 5), (4, 5)),
+    ((4, 5), (4, 3)),
+    ((4, 3), (1, 3)),
+    ((1, 3), (1, 4)),
+    ((3, 3), (3, 2)),
+    ((0, 0), (0, 5)),
+    ((0, 5), (2, 5)),
+    ((2, 5), (2, 4)),
+    ((2, 4), (3, 4)),
+    ((0, 2), (2, 2)),
+    ((2, 2), (2, 1)),
+    ((1, 1), (4, 1)),
+    ((4, 1), (4, 2)),
+]
+
+# 設定線條顏色
+ctx.strokeStyle = "blue"
+# 設定線條寬度
+ctx.lineWidth = 4
+
+# 繪製迷宮的每一條線
+for line in lines:
+    start = line[0]  # 起點
+    end = line[1]    # 終點
+    ctx.beginPath()  # 開始新路徑
+    ctx.moveTo(
+        offset_x + start[0] * pixel_scale,
+        offset_y + start[1] * pixel_scale
+    )
+    ctx.lineTo(
+        offset_x + end[0] * pixel_scale,
+        offset_y + end[1] * pixel_scale
+    )
+    ctx.stroke()  # 繪製線條
+
+# 標示原點座標
+ctx.font = "14px Arial"
+ctx.fillStyle = "red"
+ctx.fillText("(31, 37)", offset_x - 20, offset_y - 5)
+</script>
+</p>
+<p><iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen="allowfullscreen" frameborder="0" height="492" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/4Pr9ASYhoGU" title="國立虎尾科技大學機械設計工程系 - 計算機程式 - w16_exam2: 41323137" width="876"></iframe></p><br />HW 3 Exam << <a href='HW 3 Exam.html'>Previous</a> <a href='HW 4.html'>Next</a> >> HW 4</div>
         
     <!-- footer -->
       <div class="container">
