@@ -1172,7 +1172,7 @@ ctx.stroke()
 <p>期末報告自評成績:</p>
 <p style="padding-left: 30px;">完成上述流程後, 請將 Final Report 自評分數輸入 cp2024 自評表單中.</p>
 <h2>report</h2>
-<p>介紹如何利用python計算簡單的加減乘除</p>
+<p>介紹如何利用python計算簡單的加減乘除:<a href="https://reurl.cc/G5gZdy">程式碼</a></p>
 <pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false">def calculator():
     print("歡迎使用簡單計算器！")
     print("選擇運算：")
@@ -1211,7 +1211,7 @@ ctx.stroke()
 # 呼叫函數
 calculator()
 </pre>
-<p>介紹如何利用python計算多項式</p>
+<p>介紹如何利用python計算多項式:<a href="https://reurl.cc/b3e6ql">程式碼</a></p>
 <pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false">print("直接輸入整個運算式，例如：5 + 10 * 2 - 3 / 3")
     print("支援的運算符號：+ (加)、- (減)、* (乘)、/ (除)")
     
@@ -1231,6 +1231,51 @@ calculator()
 
 # 呼叫函數
 simple_expression_calculator()</pre>
+<p>判斷<strong>二次多項式 </strong>(ax² + bx + c) 是否有解<span>:</span></p>
+<pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false">import math
+
+def quadratic_solver():
+    print("歡迎使用二次多項式解算器！")
+    print("方程形式：ax² + bx + c = 0")
+    print("請依次輸入係數 a, b, c\n")
+
+    try:
+        # 輸入係數 a, b, c
+        a = float(input("請輸入 a（x² 的係數，不能為 0）: "))
+        if a == 0:
+            print("錯誤：a 不能為 0，這不是一個二次多項式！")
+            return
+        
+        b = float(input("請輸入 b（x 的係數）: "))
+        c = float(input("請輸入 c（常數項）: "))
+
+        # 計算判別式 Δ
+        delta = b**2 - 4*a*c
+
+        print(f"\n方程：{a}x² + {b}x + {c} = 0")
+        print(f"判別式 Δ = {delta}")
+
+        # 判斷解的性質
+        if delta &gt; 0:
+            root1 = (-b + math.sqrt(delta)) / (2 * a)
+            root2 = (-b - math.sqrt(delta)) / (2 * a)
+            print(f"有兩個不同的實數解：x₁ = {root1}, x₂ = {root2}")
+        elif delta == 0:
+            root = -b / (2 * a)
+            print(f"有一個重根：x = {root}")
+        else:
+            print("無實數解，因為判別式 Δ &lt; 0")
+
+    except ValueError:
+        print("錯誤：輸入的值必須是數字！")
+    except Exception as e:
+        print(f"錯誤：{e}")
+
+    print("程式已結束，感謝使用！")
+
+# 呼叫函數
+quadratic_solver()
+</pre>
 <p></p><h1>Brython</h1>
 <p>從 1 累加到 100:</p>
 <p><button id="add1to100">1 add to 100</button></p>
