@@ -141,7 +141,67 @@ img.add_border {
           </div>
           
         </header>
-    <div id="tipue_search_content">期末口頭與書面專題報告 (20%) << <a href='期末口頭與書面專題報告 (20%).html'>Previous</a> <a href='Brython.html'>Next</a> >> Brython<br /><h1>report</h1><br />期末口頭與書面專題報告 (20%) << <a href='期末口頭與書面專題報告 (20%).html'>Previous</a> <a href='Brython.html'>Next</a> >> Brython</div>
+    <div id="tipue_search_content">期末口頭與書面專題報告 (20%) << <a href='期末口頭與書面專題報告 (20%).html'>Previous</a> <a href='Brython.html'>Next</a> >> Brython<br /><h1>report</h1>
+<p>介紹如何利用python計算簡單的加減乘除</p>
+<pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false">def calculator():
+    print("歡迎使用簡單計算器！")
+    print("選擇運算：")
+    print("1. 加法")
+    print("2. 減法")
+    print("3. 乘法")
+    print("4. 除法")
+
+    # 輸入選項
+    choice = input("請輸入選項(1/2/3/4): ")
+
+    # 驗證選項是否有效
+    if choice in ['1', '2', '3', '4']:
+        try:
+            # 輸入兩個數字
+            num1 = float(input("請輸入第一個數字: "))
+            num2 = float(input("請輸入第二個數字: "))
+
+            # 根據選項執行對應運算
+            if choice == '1':
+                print(f"結果: {num1} + {num2} = {num1 + num2}")
+            elif choice == '2':
+                print(f"結果: {num1} - {num2} = {num1 - num2}")
+            elif choice == '3':
+                print(f"結果: {num1} * {num2} = {num1 * num2}")
+            elif choice == '4':
+                if num2 != 0:
+                    print(f"結果: {num1} / {num2} = {num1 / num2}")
+                else:
+                    print("錯誤：除數不能為零！")
+        except ValueError:
+            print("錯誤：請輸入有效的數字！")
+    else:
+        print("錯誤：無效的選項！")
+
+# 呼叫函數
+calculator()
+</pre>
+<p>介紹如何利用python計算多項式</p>
+<pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false">print("直接輸入整個運算式，例如：5 + 10 * 2 - 3 / 3")
+    print("支援的運算符號：+ (加)、- (減)、* (乘)、/ (除)")
+    
+    # 提示用戶輸入運算式
+    expression = input("請輸入運算式: ").strip()
+
+    try:
+        # 使用 eval 計算結果
+        result = eval(expression)
+        print(f"運算式：{expression}\n結果：{result}\n")
+    except ZeroDivisionError:
+        print("錯誤：除數不能為零！")
+    except Exception:
+        print("錯誤：無法計算此運算式，請檢查輸入格式！")
+    
+    print("程式已結束，感謝使用！")
+
+# 呼叫函數
+simple_expression_calculator()</pre>
+<p></p><br />期末口頭與書面專題報告 (20%) << <a href='期末口頭與書面專題報告 (20%).html'>Previous</a> <a href='Brython.html'>Next</a> >> Brython</div>
         
     <!-- footer -->
       <div class="container">
