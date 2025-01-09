@@ -1211,6 +1211,26 @@ ctx.stroke()
 # 呼叫函數
 calculator()
 </pre>
+<p>介紹如何利用python計算多項式</p>
+<pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false">print("直接輸入整個運算式，例如：5 + 10 * 2 - 3 / 3")
+    print("支援的運算符號：+ (加)、- (減)、* (乘)、/ (除)")
+    
+    # 提示用戶輸入運算式
+    expression = input("請輸入運算式: ").strip()
+
+    try:
+        # 使用 eval 計算結果
+        result = eval(expression)
+        print(f"運算式：{expression}\n結果：{result}\n")
+    except ZeroDivisionError:
+        print("錯誤：除數不能為零！")
+    except Exception:
+        print("錯誤：無法計算此運算式，請檢查輸入格式！")
+    
+    print("程式已結束，感謝使用！")
+
+# 呼叫函數
+simple_expression_calculator()</pre>
 <p></p><h1>Brython</h1>
 <p>從 1 累加到 100:</p>
 <p><button id="add1to100">1 add to 100</button></p>
